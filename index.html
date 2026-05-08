@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rumo — Consultoria financeira pessoal para famílias portuguesas. Reduz despesas, sai das dívidas e começa a poupar com acompanhamento próximo." />
+  <title>Rumo — Consultoria Financeira Pessoal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #0F6E56;
+      --green-dark: #085041;
+      --green-light: #E1F5EE;
+      --green-mid: #9FE1CB;
+      --text: #111;
+      --text-sec: #555;
+      --text-ter: #999;
+      --border: #E5E5E5;
+      --bg: #fff;
+      --bg-sec: #F8F8F7;
+    }
+    body { font-family: 'Sora', sans-serif; color: var(--text); background: var(--bg); }
+    a { text-decoration: none; }
+
+    /* LAYOUT */
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* NAV */
+    nav { border-bottom: 0.5px solid var(--border); }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 1.2rem; padding-bottom: 1.2rem; }
+    .logo { font-size: 22px; font-weight: 700; color: var(--green); letter-spacing: -0.5px; }
+    .logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 14px; color: var(--text-sec); }
+    .nav-links a:hover { color: var(--green); }
+
+    /* BUTTONS */
+    .btn { background: var(--green); color: #fff !important; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; font-family: 'Sora', sans-serif; display: inline-block; border: none; cursor: pointer; transition: opacity .15s; }
+    .btn:hover { opacity: .88; }
+    .btn-outline { background: transparent; border: 1px solid var(--green); color: var(--green) !important; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; display: inline-block; transition: background .15s; }
+    .btn-outline:hover { background: var(--green-light); }
+    .btn-w { display: block; width: 100%; padding: 11px; border-radius: 8px; font-size: 14px; font-weight: 500; font-family: 'Sora', sans-serif; cursor: pointer; text-align: center; transition: opacity .15s; }
+    .btn-w:hover { opacity: .88; }
+    .btn-w.solid { background: var(--green); color: #fff; border: none; }
+    .btn-w.outline { background: transparent; border: 1px solid var(--green); color: var(--green); }
+
+    /* HERO */
+    .hero { padding: 4rem 0 3.5rem; }
+    .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero h1 { font-size: 38px; font-weight: 700; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 1.2rem; }
+    .hero h1 em { color: var(--green); font-style: normal; }
+    .hero-sub { font-size: 15px; font-weight: 300; color: var(--text-sec); line-height: 1.7; margin-bottom: 2rem; font-family: 'Inter', sans-serif; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .hero-note { font-size: 12px; color: var(--text-ter); margin-top: 0.8rem; font-family: 'Inter', sans-serif; }
+    .hero-card { background: var(--bg-sec); border-radius: 16px; padding: 1.6rem; border: 0.5px solid var(--border); }
+    .hero-card-title { font-size: 12px; font-weight: 600; color: var(--text-sec); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.2rem; }
+    .hitem { display: flex; gap: 12px; align-items: flex-start; padding: 0.75rem 0; border-bottom: 0.5px solid var(--border); }
+    .hitem:last-of-type { border-bottom: none; }
+    .hitem-icon { width: 32px; height: 32px; min-width: 32px; background: var(--green-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .hitem-icon i { font-size: 16px; color: var(--green); }
+    .hitem-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+    .hitem-desc { font-size: 12px; color: var(--text-sec); font-family: 'Inter', sans-serif; line-height: 1.5; }
+    .hero-diag { margin-top: 1rem; background: var(--green-light); border-radius: 10px; padding: 0.9rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .hero-diag-text { font-size: 13px; font-weight: 500; color: var(--green-dark); }
+    .hero-diag-badge { font-size: 12px; font-weight: 600; background: var(--green); color: #fff; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
+
+    /* SECTIONS */
+    section { padding: 3.5rem 0; border-top: 0.5px solid var(--border); }
+    .stag { font-size: 11px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem; }
+    .h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.8px; margin-bottom: 0.4rem; }
+    .h2-sub { font-size: 15px; color: var(--text-sec); font-family: 'Inter', sans-serif; margin-bottom: 2rem; }
+
+    /* STEPS */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .step-num { width: 36px; height: 36px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 1rem; }
+    .step-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .step-desc { font-size: 13px; color: var(--text-sec); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+    /* SERVICES */
+    .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 14px; }
+    .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; }
+    .card.span2 { grid-column: span 2; }
+    .card.focus { border-color: var(--green-mid); }
+    .card.green-bg { border-color: #5DCAA5; background: var(--green-light); }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; }
+    .card-icon { font-size: 22px; color: var(--green); }
+    .card-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .card-desc { font-size: 13px; color: var(--text-sec); font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 1rem; }
+    .green-bg .card-desc { color: var(--green-dark); }
+    .items { list-style: none; }
+    .items li { font-size: 12px; color: var(--text-sec); font-family: 'Inter', sans-serif; padding: 4px 0; border-bottom: 0.5px solid var(--border); display: flex; gap: 7px; align-items: flex-start; }
+    .items li:last-child { border-bottom: none; }
+    .items li i { color: var(--green); font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+    .green-bg .items li { border-color: var(--green-mid); color: var(--green-dark); }
+    .green-bg .items li i { color: var(--green-dark); }
+    .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 0.8rem; }
+    .focus-item { background: #fff; border-radius: 8px; padding: 0.8rem 1rem; border: 0.5px solid var(--green-mid); }
+    .focus-item-title { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+    .focus-item-desc { font-size: 12px; color: var(--green); font-family: 'Inter', sans-serif; line-height: 1.5; }
+    .divider { font-size: 11px; font-weight: 600; color: var(--text-ter); text-transform: uppercase; letter-spacing: 1.5px; margin: 1.8rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
+    .note-box { background: var(--bg-sec); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 12px; align-items: flex-start; border: 0.5px solid var(--border); margin-top: 1.5rem; }
+    .note-box i { font-size: 18px; color: var(--green); flex-shrink: 0; margin-top: 2px; }
+    .note-box p { font-size: 13px; color: var(--text-sec); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    .note-box strong { color: var(--text); font-weight: 500; }
+
+    /* PRICING */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .plan { border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; }
+    .plan.featured { border: 2px solid var(--green); }
+    .plan-badge { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 0.8rem; align-self: flex-start; }
+    .plan-name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .plan-price { font-size: 28px; font-weight: 700; color: var(--green); letter-spacing: -1px; margin: 0.6rem 0 0.2rem; }
+    .plan-price span { font-size: 14px; font-weight: 400; color: var(--text-sec); }
+    .plan-desc { font-size: 12px; color: var(--text-sec); font-family: 'Inter', sans-serif; line-height: 1.5; margin: 0.6rem 0 1rem; }
+    .plan-items { list-style: none; margin-bottom: 1.2rem; flex: 1; }
+    .plan-items li { font-size: 12px; color: var(--text-sec); font-family: 'Inter', sans-serif; padding: 5px 0; border-bottom: 0.5px solid var(--border); display: flex; gap: 8px; align-items: flex-start; }
+    .plan-items li:last-child { border-bottom: none; }
+    .plan-items li i { color: var(--green); font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+
+    /* FOOTER CTA */
+    .footer-cta { background: var(--bg-sec); border-top: 0.5px solid var(--border); padding: 3.5rem 0; text-align: center; }
+    .footer-cta h3 { font-size: 26px; font-weight: 700; letter-spacing: -0.8px; margin-bottom: 0.6rem; }
+    .footer-cta p { font-size: 15px; color: var(--text-sec); font-family: 'Inter', sans-serif; margin-bottom: 1.5rem; }
+
+    /* FOOTER */
+    footer { border-top: 0.5px solid var(--border); }
+    footer .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 1.2rem; padding-bottom: 1.2rem; }
+    .footer-logo { font-size: 16px; font-weight: 700; color: var(--green); }
+    .footer-copy { font-size: 12px; color: var(--text-ter); font-family: 'Inter', sans-serif; }
+
+    /* RESPONSIVE */
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .hero h1 { font-size: 30px; }
+      .steps { grid-template-columns: 1fr; }
+      .grid2 { grid-template-columns: 1fr; }
+      .card.span2 { grid-column: span 1; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .plans { grid-template-columns: 1fr; }
+      footer .wrap { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="wrap">
+      <div class="logo">rumo<span>.</span></div>
+      <div class="nav-links">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#precos">Preços</a>
+      </div>
+      <a href="#precos" class="btn">Diagnóstico grátis</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>O teu dinheiro<br>precisa de <em>direção,</em><br>não de sorte.</h1>
+        <p class="hero-sub">Ajudamos famílias portuguesas a reduzir despesas, sair das dívidas e começar a poupar — com um plano feito à medida e acompanhamento próximo.</p>
+        <div class="hero-ctas">
+          <a href="#precos" class="btn">Quero o meu diagnóstico grátis</a>
+          <a href="#como-funciona" class="btn-outline">Ver como funciona</a>
+        </div>
+        <p class="hero-note">Sem compromisso. A primeira sessão é sempre gratuita.</p>
+      </div>
+      <div>
+        <div class="hero-card">
+          <p class="hero-card-title">O que analisamos contigo</p>
+          <div class="hitem">
+            <div class="hitem-icon"><i class="ti ti-bolt"></i></div>
+            <div><p class="hitem-title">Energia e telecomunicações</p><p class="hitem-desc">Faturas de luz, gás e pacotes de TV/Net que consomem mais do que deviam.</p></div>
+          </div>
+          <div class="hitem">
+            <div class="hitem-icon"><i class="ti ti-shield"></i></div>
+            <div><p class="hitem-title">Seguros</p><p class="hitem-desc">Saúde, automóvel, vida e habitação — revisamos se ainda fazem sentido.</p></div>
+          </div>
+          <div class="hitem">
+            <div class="hitem-icon"><i class="ti ti-building-bank"></i></div>
+            <div><p class="hitem-title">Apoios do Estado</p><p class="hitem-desc">Subsídios a que podes ter direito e que provavelmente não estás a receber.</p></div>
+          </div>
+          <div class="hitem">
+            <div class="hitem-icon"><i class="ti ti-receipt-tax"></i></div>
+            <div><p class="hitem-title">IRS e poupança</p><p class="hitem-desc">Preparação ao longo do ano para maximizar deduções e poupar todos os meses.</p></div>
+          </div>
+          <div class="hero-diag">
+            <p class="hero-diag-text">Começa por um diagnóstico gratuito de 45 min</p>
+            <span class="hero-diag-badge">Grátis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="wrap">
+      <p class="stag">Como funciona</p>
+      <h2 class="h2">Três passos para teres controlo</h2>
+      <p class="h2-sub">Sem jargão financeiro. Sem complicações.</p>
+      <div class="steps">
+        <div>
+          <div class="step-num">1</div>
+          <p class="step-title">Diagnóstico gratuito</p>
+          <p class="step-desc">Numa sessão de 45 min percebemos a tua situação real: contas, dívidas, despesas e onde estás a perder dinheiro sem saberes.</p>
+        </div>
+        <div>
+          <div class="step-num">2</div>
+          <p class="step-title">Plano personalizado</p>
+          <p class="step-desc">Criamos um plano concreto: o que mudar, o que cancelar, o que renegociar. Com valores exatos e prazos reais.</p>
+        </div>
+        <div>
+          <div class="step-num">3</div>
+          <p class="step-title">Acompanhamento contínuo</p>
+          <p class="step-desc">Estamos ao teu lado todos os meses para garantir que o plano avança e que não ficas sozinho nas decisões difíceis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="wrap">
+      <p class="stag">Serviços</p>
+      <h2 class="h2">O que fazemos juntos</h2>
+      <p class="h2-sub">Problemas concretos, soluções práticas. Sem jargão.</p>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="card-top"><i class="ti ti-bolt card-icon"></i></div>
+          <p class="card-title">Energia</p>
+          <p class="card-desc">Analisamos o teu contrato de eletricidade e gás para perceber se estás a pagar mais do que deverias.</p>
+          <ul class="items">
+            <li><i class="ti ti-check"></i>Revisão do tarifário atual</li>
+            <li><i class="ti ti-check"></i>Comparação com alternativas do mercado</li>
+            <li><i class="ti ti-check"></i>Apoio na mudança de comercializador</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top"><i class="ti ti-device-mobile card-icon"></i></div>
+          <p class="card-title">Telecomunicações</p>
+          <p class="card-desc">Revisamos o teu pacote de TV, Net e telemóvel. A maioria das famílias paga por serviços que nem usa.</p>
+          <ul class="items">
+            <li><i class="ti ti-check"></i>Auditoria ao pacote atual</li>
+            <li><i class="ti ti-check"></i>Identificação de serviços desnecessários</li>
+            <li><i class="ti ti-check"></i>Negociação ou mudança de operadora</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top"><i class="ti ti-credit-card card-icon"></i></div>
+          <p class="card-title">Dívidas e crédito</p>
+          <p class="card-desc">Criamos um plano para saires das dívidas mais rápido e com menos juros, sem sacrificar a qualidade de vida.</p>
+          <ul class="items">
+            <li><i class="ti ti-check"></i>Mapeamento de todas as dívidas</li>
+            <li><i class="ti ti-check"></i>Plano de amortização por prioridade</li>
+            <li><i class="ti ti-check"></i>Avaliação de refinanciamento</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top"><i class="ti ti-piggy-bank card-icon"></i></div>
+          <p class="card-title">Poupança familiar</p>
+          <p class="card-desc">Definimos metas realistas e encontramos margem para poupar todos os meses, mesmo quando parece impossível.</p>
+          <ul class="items">
+            <li><i class="ti ti-check"></i>Orçamento familiar estruturado</li>
+            <li><i class="ti ti-check"></i>Metas com prazos concretos</li>
+            <li><i class="ti ti-check"></i>Revisão mensal do progresso</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="divider">Serviços com maior impacto a médio prazo</p>
+
+      <div class="grid2">
+        <div class="card focus span2">
+          <div class="card-top"><i class="ti ti-shield card-icon"></i></div>
+          <p class="card-title">Seguros — estás a pagar bem ou a pagar a mais?</p>
+          <p class="card-desc">Seguros de saúde, automóvel, habitação e vida acumulam-se ao longo dos anos e raramente são revistos. Uma análise cuidada pode revelar coberturas duplicadas, seguros desatualizados ou alternativas muito mais baratas para o mesmo nível de proteção.</p>
+          <div class="focus-grid">
+            <div class="focus-item"><p class="focus-item-title">Seguro de saúde</p><p class="focus-item-desc">Analisamos coberturas, franquias e se o plano ainda faz sentido para a tua família.</p></div>
+            <div class="focus-item"><p class="focus-item-title">Seguro automóvel</p><p class="focus-item-desc">Verificamos se tens coberturas desnecessárias e comparamos com o mercado atual.</p></div>
+            <div class="focus-item"><p class="focus-item-title">Seguro de habitação</p><p class="focus-item-desc">Revemos o valor seguro, coberturas e se há sobreposição com outros seguros que já tens.</p></div>
+            <div class="focus-item"><p class="focus-item-title">Seguro de vida</p><p class="focus-item-desc">Avaliamos se o capital e os beneficiários ainda correspondem à tua situação atual.</p></div>
+          </div>
+        </div>
+
+        <div class="card focus span2">
+          <div class="card-top"><i class="ti ti-building-bank card-icon"></i></div>
+          <p class="card-title">Apoios e subsídios do Estado — sabes a que tens direito?</p>
+          <p class="card-desc">Milhões de euros em apoios sociais ficam por reclamar todos os anos em Portugal porque as famílias simplesmente não sabem que existem. Fazemos um levantamento completo dos apoios a que podes ter direito — e ajudamos a tratar dos pedidos.</p>
+          <div class="focus-grid">
+            <div class="focus-item"><p class="focus-item-title">Apoios à família</p><p class="focus-item-desc">Abono de família, subsídio de nascimento, apoios à parentalidade e creche gratuita.</p></div>
+            <div class="focus-item"><p class="focus-item-title">Apoios à habitação</p><p class="focus-item-desc">Porta 65, apoios ao arrendamento jovem, isenção de IMI e outros programas ativos.</p></div>
+            <div class="focus-item"><p class="focus-item-title">Eficiência energética</p><p class="focus-item-desc">Programas de apoio a isolamento, painéis solares e substituição de equipamentos.</p></div>
+            <div class="focus-item"><p class="focus-item-title">Saúde e social</p><p class="focus-item-desc">Complemento solidário, isenção de taxas moderadoras, apoios à deficiência e cuidadores.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-bottom:0">
+        <div class="card green-bg span2">
+          <div class="card-top">
+            <i class="ti ti-receipt-tax card-icon"></i>
+            <span style="font-size:11px;font-weight:600;background:#0F6E56;color:#fff;padding:3px 10px;border-radius:20px;">Incluído no acompanhamento mensal</span>
+          </div>
+          <p class="card-title">Preparação do IRS anual</p>
+          <p class="card-desc">O IRS não se prepara em abril — prepara-se ao longo do ano. No acompanhamento mensal garantimos que estás sempre a acumular as deduções certas e que na altura da entrega não perdes dinheiro por distração.</p>
+          <ul class="items">
+            <li><i class="ti ti-check"></i>Acompanhamento de faturas e despesas dedutíveis ao longo do ano</li>
+            <li><i class="ti ti-check"></i>Alertas para não perderes prazos e deduções importantes</li>
+            <li><i class="ti ti-check"></i>Revisão da declaração antes de entregar</li>
+            <li><i class="ti ti-check"></i>Explicação clara do que podes deduzir: saúde, educação, habitação, PPR e mais</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <i class="ti ti-info-circle"></i>
+        <p><strong>Nota importante:</strong> A Rumo oferece educação e organização financeira pessoal. Não substituímos um contabilista certificado para declarações fiscais complexas — mas ajudamos-te a chegar a esse passo muito mais preparado e a poupar nas deduções do dia a dia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREÇOS -->
+  <section id="precos">
+    <div class="wrap">
+      <p class="stag">Preços</p>
+      <h2 class="h2">Simples e transparente</h2>
+      <p class="h2-sub">Sem surpresas. Sabes sempre o que pagas.</p>
+      <div class="plans">
+        <div class="plan">
+          <p class="plan-name">Diagnóstico</p>
+          <p class="plan-price">Grátis</p>
+          <p class="plan-desc">Para perceberes se faz sentido avançarmos juntos.</p>
+          <ul class="plan-items">
+            <li><i class="ti ti-check"></i>Sessão de 45 min</li>
+            <li><i class="ti ti-check"></i>Análise da situação atual</li>
+            <li><i class="ti ti-check"></i>3 ações imediatas</li>
+          </ul>
+          <a href="mailto:ola@rumo.pt" class="btn-w outline">Marcar sessão</a>
+        </div>
+        <div class="plan featured">
+          <span class="plan-badge">Mais popular</span>
+          <p class="plan-name">Plano completo</p>
+          <p class="plan-price">49€<span>/mês</span></p>
+          <p class="plan-desc">Análise completa e acompanhamento mensal próximo.</p>
+          <ul class="plan-items">
+            <li><i class="ti ti-check"></i>Relatório personalizado</li>
+            <li><i class="ti ti-check"></i>Check-in mensal de 45 min</li>
+            <li><i class="ti ti-check"></i>Suporte por WhatsApp</li>
+            <li><i class="ti ti-check"></i>Alertas de poupança</li>
+            <li><i class="ti ti-check"></i>Preparação do IRS incluída</li>
+          </ul>
+          <a href="mailto:ola@rumo.pt" class="btn-w solid">Começar agora</a>
+        </div>
+        <div class="plan">
+          <p class="plan-name">Análise pontual</p>
+          <p class="plan-price">29€</p>
+          <p class="plan-desc">Para um problema específico que queres resolver já.</p>
+          <ul class="plan-items">
+            <li><i class="ti ti-check"></i>1 tema à escolha</li>
+            <li><i class="ti ti-check"></i>Relatório de recomendações</li>
+            <li><i class="ti ti-check"></i>Sessão de 60 min</li>
+          </ul>
+          <a href="mailto:ola@rumo.pt" class="btn-w outline">Escolher tema</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <div class="wrap">
+      <h3>Pronto para perceber onde está a ir o teu dinheiro?</h3>
+      <p>O diagnóstico é gratuito. Não há nada a perder.</p>
+      <a href="mailto:ola@rumo.pt" class="btn">Quero o meu diagnóstico grátis</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-logo">rumo.</div>
+      <div class="footer-copy">© 2025 Rumo · Portugal · Todos os direitos reservados</div>
+    </div>
+  </footer>
+
+</body>
+</html>
