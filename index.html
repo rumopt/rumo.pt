@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rumo — Consultoria financeira pessoal para famílias portuguesas. Reduz despesas, sai das dívidas e começa a poupar com acompanhamento próximo." />
-  <title>Rumo — Consultoria Financeira Pessoal</title>
+  <meta name="description" content="rumo — Consultoria financeira pessoal para famílias portuguesas. Reduz despesas, sai das dívidas e começa a poupar com acompanhamento próximo." />
+  <title>rumo — Consultoria Financeira Pessoal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -22,14 +22,31 @@
       --bg: #fff;
       --bg-sec: #F8F8F7;
     }
-    body { font-family: 'Sora', sans-serif; color: var(--text); background: var(--bg); }
+    body {
+      font-family: 'Sora', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191011?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.045;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body > * { position: relative; z-index: 1; }
     a { text-decoration: none; }
 
     /* LAYOUT */
     .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
 
     /* NAV */
-    nav { border-bottom: 0.5px solid var(--border); }
+    nav { border-bottom: 0.5px solid var(--border); background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100; }
     nav .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 1.2rem; padding-bottom: 1.2rem; }
     .logo { font-size: 22px; font-weight: 700; color: var(--green); letter-spacing: -0.5px; }
     .logo span { color: var(--text); }
@@ -55,7 +72,7 @@
     .hero-sub { font-size: 15px; font-weight: 300; color: var(--text-sec); line-height: 1.7; margin-bottom: 2rem; font-family: 'Inter', sans-serif; }
     .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     .hero-note { font-size: 12px; color: var(--text-ter); margin-top: 0.8rem; font-family: 'Inter', sans-serif; }
-    .hero-card { background: var(--bg-sec); border-radius: 16px; padding: 1.6rem; border: 0.5px solid var(--border); }
+    .hero-card { background: rgba(255,255,255,0.88); backdrop-filter: blur(6px); border-radius: 16px; padding: 1.6rem; border: 0.5px solid var(--border); }
     .hero-card-title { font-size: 12px; font-weight: 600; color: var(--text-sec); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.2rem; }
     .hitem { display: flex; gap: 12px; align-items: flex-start; padding: 0.75rem 0; border-bottom: 0.5px solid var(--border); }
     .hitem:last-of-type { border-bottom: none; }
@@ -81,7 +98,7 @@
 
     /* SERVICES */
     .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 14px; }
-    .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; }
+    .card { background: rgba(255,255,255,0.88); backdrop-filter: blur(4px); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; }
     .card.span2 { grid-column: span 2; }
     .card.focus { border-color: var(--green-mid); }
     .card.green-bg { border-color: #5DCAA5; background: var(--green-light); }
@@ -108,7 +125,7 @@
 
     /* PRICING */
     .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .plan { border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; }
+    .plan { border: 0.5px solid var(--border); border-radius: 12px; padding: 1.4rem; display: flex; flex-direction: column; background: rgba(255,255,255,0.88); backdrop-filter: blur(4px); }
     .plan.featured { border: 2px solid var(--green); }
     .plan-badge { background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 0.8rem; align-self: flex-start; }
     .plan-name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
@@ -121,12 +138,12 @@
     .plan-items li i { color: var(--green); font-size: 14px; margin-top: 1px; flex-shrink: 0; }
 
     /* FOOTER CTA */
-    .footer-cta { background: var(--bg-sec); border-top: 0.5px solid var(--border); padding: 3.5rem 0; text-align: center; }
+    .footer-cta { background: rgba(248,248,247,0.95); border-top: 0.5px solid var(--border); padding: 3.5rem 0; text-align: center; }
     .footer-cta h3 { font-size: 26px; font-weight: 700; letter-spacing: -0.8px; margin-bottom: 0.6rem; }
     .footer-cta p { font-size: 15px; color: var(--text-sec); font-family: 'Inter', sans-serif; margin-bottom: 1.5rem; }
 
     /* FOOTER */
-    footer { border-top: 0.5px solid var(--border); }
+    footer { border-top: 0.5px solid var(--border); background: rgba(255,255,255,0.95); }
     footer .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 1.2rem; padding-bottom: 1.2rem; }
     .footer-logo { font-size: 16px; font-weight: 700; color: var(--green); }
     .footer-copy { font-size: 12px; color: var(--text-ter); font-family: 'Inter', sans-serif; }
@@ -150,7 +167,7 @@
   <!-- NAV -->
   <nav>
     <div class="wrap">
-      <div class="logo">rumo<span>.</span></div>
+      <div class="logo">rumo<span></span></div>
       <div class="nav-links">
         <a href="#como-funciona">Como funciona</a>
         <a href="#servicos">Serviços</a>
@@ -323,7 +340,7 @@
 
       <div class="note-box">
         <i class="ti ti-info-circle"></i>
-        <p><strong>Nota importante:</strong> A Rumo oferece educação e organização financeira pessoal. Não substituímos um contabilista certificado para declarações fiscais complexas — mas ajudamos-te a chegar a esse passo muito mais preparado e a poupar nas deduções do dia a dia.</p>
+        <p><strong>Nota importante:</strong> A rumo oferece educação e organização financeira pessoal. Não substituímos um contabilista certificado para declarações fiscais complexas — mas ajudamos-te a chegar a esse passo muito mais preparado e a poupar nas deduções do dia a dia.</p>
       </div>
     </div>
   </section>
@@ -347,9 +364,9 @@
           <a href="mailto:ola@rumo.pt" class="btn-w outline">Marcar sessão</a>
         </div>
         <div class="plan featured">
-          <span class="plan-badge">Mais popular</span>
+          <span class="plan-badge">Recomendado</span>
           <p class="plan-name">Plano completo</p>
-          <p class="plan-price">49€<span>/mês</span></p>
+          <p class="plan-price">19€<span>/mês</span></p>
           <p class="plan-desc">Análise completa e acompanhamento mensal próximo.</p>
           <ul class="plan-items">
             <li><i class="ti ti-check"></i>Relatório personalizado</li>
@@ -362,7 +379,7 @@
         </div>
         <div class="plan">
           <p class="plan-name">Análise pontual</p>
-          <p class="plan-price">29€</p>
+          <p class="plan-price">9€</p>
           <p class="plan-desc">Para um problema específico que queres resolver já.</p>
           <ul class="plan-items">
             <li><i class="ti ti-check"></i>1 tema à escolha</li>
